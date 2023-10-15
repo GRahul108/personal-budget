@@ -172,19 +172,12 @@
             datasets: [
                 {
                     data: [],
-                    backgroundColor: [
-                        '#ffcd56',
-                        '#ff6384',
-                        '#36a2eb',
-                        '#fd6b19',
-                        '#eb87f1',
-                        '#87f195',
-                        '#405e44'
-                    ]
+                    backgroundColor: []
                 }
             ],
             labels: []
         };
+        
         function createChart() {
             var ctx = document.getElementById('myChart').getContext('2d');
             var myPieChart = new Chart(ctx, {
@@ -195,16 +188,19 @@
         function getBudget() {
             axios.get('/budget')
             .then(function (res) {
-                for (var i = 0; i < res.data.myBudget.length; i++) {
-                    dataSource.datasets[0].data[i] = res.data.myBudget[i].budget;
-                    dataSource.labels[i] = res.data.myBudget[i].title;
-                    createChart();
+                console.log("res , res data",res,res.data)
+                for (var i = 0; i < res.data.length; i++) {
+                    dataSource.datasets[0].data[i] = res.data[i].budget;
+                    dataSource.datasets[0].backgroundColor[i]=res.data[i].color;
+                    dataSource.labels[i] = res.data[i].title;
+                 
                    
                 }
+                createChart();
                 createD3Chart();
             });
         }
-
+        console.log(dataSource)
        
 
 
@@ -241,7 +237,7 @@
             svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
             var key = function(d){ return d.data.label; };
-            console.log("Datasource",dataSource.labels,dataSource.datasets[0].data)
+            // console.log("Datasource",dataSource.labels,dataSource.datasets[0].data)
             var color = d3.scale.ordinal()
             
             .domain([...dataSource.labels])

@@ -3,31 +3,37 @@
     "myBudget": [
         {
             "title": "Eat out",
-            "budget": 50
+            "budget": 50,
+            "color":"#ffcd56"
         },
         {
             "title": "Rent",
-            "budget": 200
+            "budget": 200,
+            "color":"#ff6384"
         },
         {
             "title": "Grocery",
-            "budget": 120
+            "budget": 120,
+            "color":"#36a2eb"
         },
         {
         "title": "Phone Plan",
-        "budget": 60
+        "budget": 60,
+        "color":"#fd6b19"
         },
         {
             "title": "Utilities",
-            "budget": 120
+            "budget": 120,
+            "color":"#eb87f1"
         },
         {
              "title": "Insurance",
-            "budget": 80
-        },
+            "budget": 80,
+            "color":"#87f195"        },
         {
             "title": "House Loan",
-            "budget": 150
+            "budget": 150,
+            "color":"#405e44"
             }
         
     ]
